@@ -1,13 +1,28 @@
 <section class="container">
   <h1>Historia de los Videojuegos</h1>
 
-  <input
-    type="text"
-    [(ngModel)]="query"
-    placeholder="Buscar por año, juego o descripción…"
-    class="search"
-    aria-label="Buscar eventos"
-  />
+  <div class="controls">
+    <input
+      type="text"
+      [(ngModel)]="query"
+      placeholder="Buscar por año, juego o descripción…"
+      class="search"
+      aria-label="Buscar eventos"
+    />
+
+    <div class="filters">
+      <label>
+        Década:
+        <select [(ngModel)]="decade" aria-label="Filtrar por década">
+          <option *ngFor="let d of decades" [value]="d">{{ d === 'all' ? 'Todas' : d }}</option>
+        </select>
+      </label>
+
+      <button class="btn" (click)="toggleSort()" type="button">
+        Orden: {{ sortDesc ? 'Descendente' : 'Ascendente' }}
+      </button>
+    </div>
+  </div>
 
   <ul class="timeline">
     <li *ngFor="let ev of filtered">

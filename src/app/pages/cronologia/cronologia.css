@@ -6,3 +6,9 @@ h1 { margin-bottom: 1rem; }
 .timeline li { display: flex; gap: 1rem; position: relative; margin: 1rem 0; }
 .dot { width: 12px; height: 12px; border-radius: 999px; background: #111827; position: relative; top: .5rem; margin-left: 12px; }
 .card { background: #fff; border: 1px solid #eee; border-radius: .75rem; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.05); flex: 1; }
+.controls { display: grid; gap: .75rem; margin-bottom: 1rem; }
+.filters { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+select { padding: .5rem .75rem; border: 1px solid #ddd; border-radius: .5rem; }
+.btn { padding: .5rem .75rem; border: 1px solid #ddd; border-radius: .5rem; background: #f9fafb; cursor: pointer; }
+.btn:hover { background: #f3f4f6; }
+
