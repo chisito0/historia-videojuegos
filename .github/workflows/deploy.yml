@@ -1,0 +1,61 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci || npm install
+
+      - name: Build app
+        run: npm run build -- --base-href=/${{ github.event.repository.name }}/
+
+      - name: Locate dist folder
+        id: dist
+        run: |
+          set -e
+          OUT=$(ls -d dist/*/browser dist/* 2>/dev/null | head -n 1)
+          echo "DIST=$OUT" >> $GITHUB_OUTPUT
+          echo "Using dist path: $OUT"
+
+      - name: Add 404.html
+        run: cp "${{ steps.dist.outputs.DIST }}/index.html" "${{ steps.dist.outputs.DIST }}/404.html"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.dist.outputs.DIST }}
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
