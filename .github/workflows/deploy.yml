@@ -36,11 +36,16 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      # Detecta dist (soporta dist/<app>/browser o dist/<app>) y crea 404.html para SPA
+            # Detecta dónde está index.html (dist/**/*) y crea 404.html para SPA
       - name: Detect dist and add 404
         run: |
           set -e
-          OUT=$(ls -d dist/*/browser dist/* 2>/dev/null | head -n 1)
+          # muestra estructura para depurar
+          ls -R dist || true
+          OUT=$(find dist -type f -name index.html -print -quit | xargs -r dirname)
+          if [ -z "$OUT" ]; then
+            echo "No index.html found under dist"; exit 1
+          fi
           echo "DIST=$OUT" >> $GITHUB_ENV
           cp "$OUT/index.html" "$OUT/404.html"
           echo "Using dist path: $OUT"
@@ -49,6 +54,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.DIST }}
+
 
   deploy:
     environment:
