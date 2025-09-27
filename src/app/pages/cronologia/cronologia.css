@@ -1,0 +1,8 @@
+.container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+h1 { margin-bottom: 1rem; }
+.search { width: 100%; padding: .75rem 1rem; border: 1px solid #ddd; border-radius: .5rem; margin-bottom: 1rem; }
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
+.timeline li { display: flex; gap: 1rem; position: relative; margin: 1rem 0; }
+.dot { width: 12px; height: 12px; border-radius: 999px; background: #111827; position: relative; top: .5rem; margin-left: 12px; }
+.card { background: #fff; border: 1px solid #eee; border-radius: .75rem; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.05); flex: 1; }

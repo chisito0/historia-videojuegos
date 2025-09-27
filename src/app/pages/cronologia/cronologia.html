@@ -1,0 +1,21 @@
+<section class="container">
+  <h1>Historia de los Videojuegos</h1>
+
+  <input
+    type="text"
+    [(ngModel)]="query"
+    placeholder="Buscar por año, juego o descripción…"
+    class="search"
+    aria-label="Buscar eventos"
+  />
+
+  <ul class="timeline">
+    <li *ngFor="let ev of filtered">
+      <div class="dot" aria-hidden="true"></div>
+      <div class="card">
+        <h3>{{ ev.year }} — {{ ev.title }}</h3>
+        <p>{{ ev.description }}</p>
+      </div>
+    </li>
+  </ul>
+</section>
