@@ -2,7 +2,7 @@ name: Deploy Angular to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master", "main" ]   # tu repo usa master
   workflow_dispatch:
 
 permissions:
@@ -33,21 +33,28 @@ jobs:
       - name: Build app
         run: npm run build -- --base-href=/${{ github.event.repository.name }}/
 
-      - name: Locate dist folder
-        id: dist
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+            # Detecta dónde está index.html (dist/**/*) y crea 404.html para SPA
+      - name: Detect dist and add 404
         run: |
           set -e
-          OUT=$(ls -d dist/*/browser dist/* 2>/dev/null | head -n 1)
-          echo "DIST=$OUT" >> $GITHUB_OUTPUT
+          # muestra estructura para depurar
+          ls -R dist || true
+          OUT=$(find dist -type f -name index.html -print -quit | xargs -r dirname)
+          if [ -z "$OUT" ]; then
+            echo "No index.html found under dist"; exit 1
+          fi
+          echo "DIST=$OUT" >> $GITHUB_ENV
+          cp "$OUT/index.html" "$OUT/404.html"
           echo "Using dist path: $OUT"
-
-      - name: Add 404.html
-        run: cp "${{ steps.dist.outputs.DIST }}/index.html" "${{ steps.dist.outputs.DIST }}/404.html"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ steps.dist.outputs.DIST }}
+          path: ${{ env.DIST }}
+
 
   deploy:
     environment:
