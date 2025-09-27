@@ -2,7 +2,7 @@ name: Deploy Angular to GitHub Pages
 
 on:
   push:
-    branches: [ "master", "main" ] 
+    branches: [ "master", "main" ]   # tu repo usa master
   workflow_dispatch:
 
 permissions:
@@ -36,20 +36,19 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      # Detecta la carpeta de salida y crea 404.html para SPA
-      - name: Prepare artifact
-        id: prep
+      # Detecta dist (soporta dist/<app>/browser o dist/<app>) y crea 404.html para SPA
+      - name: Detect dist and add 404
         run: |
           set -e
           OUT=$(ls -d dist/*/browser dist/* 2>/dev/null | head -n 1)
-          echo "DIST=$OUT" >> $GITHUB_OUTPUT
+          echo "DIST=$OUT" >> $GITHUB_ENV
           cp "$OUT/index.html" "$OUT/404.html"
           echo "Using dist path: $OUT"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ steps.prep.outputs.DIST }}
+          path: ${{ env.DIST }}
 
   deploy:
     environment:
@@ -59,8 +58,5 @@ jobs:
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
         id: deployment
         uses: actions/deploy-pages@v4
