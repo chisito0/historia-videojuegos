@@ -47,3 +47,11 @@ h1{ text-shadow:0 0 8px var(--neon-cyan), 0 0 22px var(--neon-cyan) }
 }
 .card a{ color:#fff; text-decoration:underline }
 .card a:hover{ text-decoration:none }
+.more { margin-top:.5rem; border-top:1px dashed rgba(0,234,255,.25); padding-top:.5rem; }
+.more > summary { cursor:pointer; list-style:none; font-weight:700; text-shadow:0 0 8px var(--neon-cyan); }
+.more > summary::-webkit-details-marker{ display:none; }
+.more[open] > summary{ text-shadow:0 0 8px var(--neon-pink); }
+.more ul{ margin:.5rem 0 0; padding-left:1.1rem; }
+.more li{ color:var(--muted); margin:.2rem 0; }
+.more strong{ color:#fff; }
+

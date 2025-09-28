@@ -2,7 +2,7 @@
   --bg1:#070812; --bg2:#0b1020;
   --text:#e6f3ff; --muted:#9fb3c8;
   --neon-cyan:#00eaff; --neon-pink:#ff3ec8; --neon-purple:#9b6cff;
-  --card:#0c111cdd; /* translúcido */
+  --card:#0c111cdd;
   --line:rgba(0,255,255,.18);
 }
 
@@ -10,7 +10,7 @@
 html,body{height:100%}
 body{
   margin:0; color:var(--text);
-  font-family: 'Orbitron', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Arial;
   background:
     radial-gradient(60% 30% at 50% -10%, rgba(0,255,255,.08), transparent 60%),
     radial-gradient(40% 25% at 80% 10%, rgba(255,0,200,.06), transparent 60%),
@@ -18,27 +18,34 @@ body{
   min-height:100%;
 }
 
-/* overlay grid + scanlines (retro CRT) */
+/* === FONDO GIF === */
 body::before{
-  content:""; position:fixed; inset:0; pointer-events:none;
-  background:
-    linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)) 0 0/100% 3px;
-  mix-blend-mode:overlay; opacity:.25;
+  content:"";
+  position:fixed; inset:0;
+  background: url("assets/bg.gif") center / cover no-repeat;
+  filter: blur(10px) brightness(.6) saturate(1.2);
+  transform: scale(1.06);
+  z-index: 0;                /* debajo del contenido */
+  pointer-events:none;
 }
+
+/* === Overlays retro (scanlines + grid) encima del GIF === */
 body::after{
-  content:""; position:fixed; inset:0; pointer-events:none; opacity:.22;
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index: 1;
+  opacity:.22;
   background:
+    linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)) 0 0/100% 3px,
     linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 24px,
     linear-gradient(90deg, rgba(255,0,200,.08) 1px, transparent 1px) 0 0/24px 100%;
 }
 
-.neon-text{
-  text-shadow:
-    0 0 6px var(--neon-cyan),
-    0 0 16px var(--neon-cyan),
-    0 0 28px var(--neon-cyan);
-}
-.neon-pink{ text-shadow:0 0 8px var(--neon-pink),0 0 20px var(--neon-pink) }
+/* El contenido de la app siempre por encima */
+app-root{ position:relative; z-index: 2; }
 
-a{ color: var(--text) }
-
+/* Accesibilidad: menos movimiento */
+/* @media (prefers-reduced-motion: reduce){
+  body::before{ display:none; }
+} */

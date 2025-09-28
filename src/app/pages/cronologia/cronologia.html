@@ -41,6 +41,25 @@
       <!-- AQUI estaban los textos que faltan -->
       <h3>{{ ev.year }} — {{ ev.title }}</h3>
       <p>{{ ev.description }}</p>
+      <details *ngIf="ev.more || ev.specs" class="more">
+        <summary>Más info</summary>
+
+        <p *ngIf="ev.more">{{ ev.more }}</p>
+
+        <!-- Capturamos specs en 's' para no repetir encadenado opcional -->
+        <ul *ngIf="ev.specs as s">
+          <li *ngIf="s.manufacturer"><strong>Fabricante:</strong> {{ s.manufacturer }}</li>
+          <li *ngIf="s.generation"><strong>Generación:</strong> {{ s.generation }}</li>
+          <li *ngIf="s.media"><strong>Soporte:</strong> {{ s.media }}</li>
+          <li *ngIf="s.cpu_gpu"><strong>CPU/GPU:</strong> {{ s.cpu_gpu }}</li>
+          <li *ngIf="s.units_sold"><strong>Ventas:</strong> {{ s.units_sold }}</li>
+
+          <!-- Aquí estaba el error: usamos ?? [] para garantizar array -->
+          <li *ngIf="s.notable_games?.length">
+            <strong>Juegos clave:</strong> {{ (s.notable_games ?? []).join(', ') }}
+          </li>
+        </ul>
+      </details>
 
       <p *ngIf="ev.link">
         <a [href]="ev.link" target="_blank" rel="noopener">Crédito / Más info</a>
