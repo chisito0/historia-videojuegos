@@ -12,6 +12,7 @@ import { EVENTS } from '../../data/events';
   styleUrls: ['./cronologia.css']
 })
 export class Cronologia {
+
   query = '';
   sortDesc = false;               // ← nuevo: orden descendente
   decade = 'all';                 // ← nuevo: filtro por década
@@ -52,4 +53,10 @@ export class Cronologia {
   toggleSort() {
     this.sortDesc = !this.sortDesc;
   }
+
+  imgError(e: Event) {
+  const el = e.target as HTMLImageElement;
+  el.style.display = 'none'; // ocultar si 404 / bloqueada
+  }
+
 }

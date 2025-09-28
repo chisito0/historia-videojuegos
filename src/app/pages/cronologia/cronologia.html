@@ -24,16 +24,28 @@
     </div>
   </div>
 
-  <ul class="timeline">
-    <li *ngFor="let ev of filtered">
-      <div class="dot" aria-hidden="true"></div>
-      <div class="card">
-        <img *ngIf="ev.image" [src]="ev.image" [alt]="ev.title" loading="lazy" />
-        <h3>{{ ev.year }} — {{ ev.title }}</h3>
-        <p>{{ ev.description }}</p>
-        <p *ngIf="ev.link"><a [href]="ev.link" target="_blank" rel="noopener">Más info</a></p>
-      </div>
+<ul class="timeline">
+  <li *ngFor="let ev of filtered">
+    <div class="dot" aria-hidden="true"></div>
+    <div class="card">
+      <img
+        *ngIf="ev.image"
+        [src]="ev.image"
+        [alt]="ev.title"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        crossorigin="anonymous"
+        (error)="imgError($event)"
+      />
 
-    </li>
-  </ul>
+      <!-- AQUI estaban los textos que faltan -->
+      <h3>{{ ev.year }} — {{ ev.title }}</h3>
+      <p>{{ ev.description }}</p>
+
+      <p *ngIf="ev.link">
+        <a [href]="ev.link" target="_blank" rel="noopener">Crédito / Más info</a>
+      </p>
+    </div>
+  </li>
+</ul>
 </section>
