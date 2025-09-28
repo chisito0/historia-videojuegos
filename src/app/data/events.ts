@@ -5,7 +5,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1972, title: 'Pong',
     description: 'El arcade que popularizó los videojuegos.',
-    image: 'assets/img/pong.webp',
+    image: 'https://s.yimg.com/ny/api/res/1.2/Wbt_N0W2imugAsRaE5SDpg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ4MA--/https://media.zenfs.com/en_US/games/Yahoo_Entertainment_US_Games/126-1741-1446806216_1223054469.jpg',
     specs: {
       manufacturer: 'Atari',
       generation: 'Arcade (1ª ola)',
@@ -68,7 +68,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1989, title: 'Game Boy',
     description: 'Consola portátil masiva con Tetris.',
-    image: 'assets/img/gameboy.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Game-Boy-FL.jpg',
     specs: {
       manufacturer: 'Nintendo',
       generation: 'Portátiles 4ª',
@@ -80,7 +80,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1989, title: 'Mega Drive / Genesis',
     description: 'Empuja la era de los 16-bit y la rivalidad con Nintendo.',
-    image: 'assets/img/megadrive.webp',
+    image: 'assets/img/megadrive.jpg',
     specs: {
       manufacturer: 'SEGA',
       generation: '4ª (16-bit)',
@@ -132,7 +132,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1994, title: 'Sega Saturn',
     description: '32-bit enfocada al 2D potente y primeros 3D con CD-ROM.',
-    image: 'assets/img/segasaturn.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Sega-Saturn-Console-Set-Mk2.png',
     specs: {
       manufacturer: 'SEGA',
       generation: '5ª',
@@ -143,7 +143,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1994, title: 'PlayStation',
     description: 'CD-ROM y 3D accesible al gran público.',
-    image: 'assets/img/playstation1.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/PSX-Console-wController.png/1200px-PSX-Console-wController.png',
     specs: {
       manufacturer: 'Sony',
       generation: '5ª',
@@ -155,7 +155,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1996, title: 'Nintendo 64',
     description: 'Populariza el 3D en consola y el stick analógico.',
-    image: 'assets/img/n64.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Nintendo-64-wController-L.jpg/1200px-Nintendo-64-wController-L.jpg',
     specs: {
       manufacturer: 'Nintendo',
       generation: '5ª',
@@ -178,7 +178,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1999, title: 'Dreamcast',
     description: 'Pionera en juego online con módem integrado.',
-    image: 'assets/img/dreamcast.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Dreamcast-Console-Set.png/1920px-Dreamcast-Console-Set.png',
     specs: {
       manufacturer: 'SEGA',
       generation: '6ª',
@@ -191,7 +191,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 2000, title: 'PlayStation 2',
     description: 'DVD y retrocompatibilidad; la consola más vendida.',
-    image: 'assets/img/playstation2.webp',
+    image: 'https://fotografias-neox.atresmedia.com/clipping/cmsimages02/2018/07/19/DA50180D-AEAB-4F59-84B5-51B58CDC3F10/98.jpg?crop=1920,1080,x0,y0&width=1900&height=1069&optimize=high&format=webply',
     specs: {
       manufacturer: 'Sony',
       generation: '6ª',
@@ -204,7 +204,7 @@ export const EVENTS: GameEvent[] = [
     year: 2001,
     title: 'Nintendo GameCube',
     description: 'MiniDVD, mando WaveBird y gran primera hornada de juegos.',
-    image: 'https://m.media-amazon.com/images/I/51s+fOXzUbL.jpg',
+    image: 'https://fotografias-neox.atresmedia.com/clipping/cmsimages02/2021/11/29/95D40B92-15E0-4124-B3E4-9F059D8D4135/69.jpg?crop=1280,720,x0,y0&width=1280&height=720&optimize=high&format=webply',
     specs: {
       manufacturer: 'Nintendo',
       generation: '6ª',
@@ -217,7 +217,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 2001, title: 'Game Boy Advance',
     description: 'Portátil 32-bit con catálogo enorme.',
-    image: 'https://m.media-amazon.com/images/I/41m7GZdo0lL._UF1000,1000_QL80_.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Nintendo-Game-Boy-Advance-Purple-FL.jpg',
     specs: {
       manufacturer: 'Nintendo',
       generation: 'Portátiles',
@@ -228,7 +228,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 2001, title: 'Xbox',
     description: 'Se consolida el online en consola.',
-    image: 'assets/img/xbox.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Xbox-Console-wDuke-L.jpg',
     specs: {
       manufacturer: 'Microsoft',
       generation: '6ª',
@@ -245,12 +245,12 @@ export const EVENTS: GameEvent[] = [
   {
     year: 2004, title: 'Nintendo DS',
     description: 'Doble pantalla y táctil; fenómeno mundial.',
-    image: 'https://m.media-amazon.com/images/I/51sZpE5vjzL._UF894,1000_QL80_.jpg',
+    image: 'https://m.media-amazon.com/images/I/410W9R74Z3L._UF1000,1000_QL80_.jpg',
     specs: {
       manufacturer: 'Nintendo',
       generation: 'Portátiles',
       media: 'Tarjetas DS',
-      notable_games: ['Nintendogs', 'Brain Training', 'Pokémon']
+      notable_games: ['Nintendogs', 'Brain Training', 'Pokémon', 'Fire Emblem']
     }
   },
   {
@@ -267,7 +267,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 2005, title: 'Xbox 360 / PlayStation 3',
     description: 'HD, servicios online y tiendas digitales modernas.',
-    image: 'https://p2.trrsf.com/image/fget/cf/1200/630/middle/images.terra.com/2013/01/07/xbox-e-ps3.jpg',
+    image: 'assets/img/ps3vsxbox360.webp',
     specs: {
       manufacturer: 'Microsoft / Sony',
       generation: '7ª',
@@ -278,7 +278,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 2006, title: 'Wii',
     description: 'Control por movimiento y ampliación del público.',
-    image: 'assets/img/wii.webp',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Wii_console.png',
     specs: {
       manufacturer: 'Nintendo',
       generation: '7ª',
@@ -302,7 +302,7 @@ export const EVENTS: GameEvent[] = [
       manufacturer: 'Nintendo',
       generation: 'Portátiles',
       media: 'Tarjetas 3DS / descarga',
-      notable_games: ['Mario 3D Land', 'Animal Crossing', 'Pokémon X/Y']
+      notable_games: ['Mario 3D Land', 'Animal Crossing', 'Pokémon X/Y', 'Fire Emblem']
     }
   },
   {

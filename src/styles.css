@@ -22,9 +22,9 @@ body{
 body::before{
   content:"";
   position:fixed; inset:0;
-  background: url("assets/bg.gif") center / cover no-repeat;
-  filter: blur(10px) brightness(.6) saturate(1.2);
-  transform: scale(1.06);
+  background: url("assets/bg4.gif") center / cover no-repeat;
+  filter: blur(15px) brightness(.6) saturate(1.2);
+  transform: scale(1.05);
   z-index: 0;                /* debajo del contenido */
   pointer-events:none;
 }
