@@ -29,7 +29,7 @@ export const EVENTS: GameEvent[] = [
   {
     year: 1985, title: 'NES',
     description: 'Revitaliza el mercado doméstico.',
-    image: 'assets/img/nes.webp',
+    image: 'https://i.ebayimg.com/images/g/xaAAAOSwo0RjuXER/s-l1200.jpg',
     specs: {
       manufacturer: 'Nintendo',
       generation: '3ª',
