@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --bg1:#070812; --bg2:#0b1020;
+  --text:#e6f3ff; --muted:#9fb3c8;
+  --neon-cyan:#00eaff; --neon-pink:#ff3ec8; --neon-purple:#9b6cff;
+  --card:#0c111cdd; /* translúcido */
+  --line:rgba(0,255,255,.18);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--text);
+  font-family: 'Orbitron', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background:
+    radial-gradient(60% 30% at 50% -10%, rgba(0,255,255,.08), transparent 60%),
+    radial-gradient(40% 25% at 80% 10%, rgba(255,0,200,.06), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  min-height:100%;
+}
+
+/* overlay grid + scanlines (retro CRT) */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)) 0 0/100% 3px;
+  mix-blend-mode:overlay; opacity:.25;
+}
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.22;
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, rgba(255,0,200,.08) 1px, transparent 1px) 0 0/24px 100%;
+}
+
+.neon-text{
+  text-shadow:
+    0 0 6px var(--neon-cyan),
+    0 0 16px var(--neon-cyan),
+    0 0 28px var(--neon-cyan);
+}
+.neon-pink{ text-shadow:0 0 8px var(--neon-pink),0 0 20px var(--neon-pink) }
+
+a{ color: var(--text) }
+
