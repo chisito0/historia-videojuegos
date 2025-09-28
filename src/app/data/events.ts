@@ -27,7 +27,7 @@ export const EVENTS: GameEvent[] = [
     }
   },
   {
-    year: 1985, title: 'NES / Super Mario Bros.',
+    year: 1985, title: 'NES',
     description: 'Revitaliza el mercado doméstico.',
     image: 'assets/img/nes.webp',
     specs: {
